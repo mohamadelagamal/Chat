@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/searchContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        tools:layout_height="?android:attr/actionBarSize">
+
+        <EditText
+            android:id="@+id/searchEditText"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:hint="search_hint"
+            android:imeOptions="actionSearch"
+            android:inputType="textNoSuggestions"
+            android:lines="1"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@id/clearButton"
+            app:layout_constraintStart_toEndOf="@id/backButton"
+            android:autofillHints="" />
+
+        <ImageButton
+            android:id="@+id/backButton"
+            style="@style/SearchViewIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:alpha="0.87"
+            android:contentDescription="Back"
+            android:tint="?attr/colorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/back"
+            tools:ignore="UseAppTint" />
+
+        <ImageButton
+            android:id="@+id/voiceButton"
+            style="@style/SearchViewIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:contentDescription="voice search"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/voice" />
+
+        <ImageButton
+            android:id="@+id/clearButton"
+            style="@style/SearchViewIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:contentDescription="clear search"
+            android:visibility="gone"
+            app:layout_constraintEnd_toStartOf="@id/voiceButton"
+            app:srcCompat="@drawable/block"
+            tools:visibility="visible" />
+
+        <View
+            android:id="@+id/bottomLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#0D000000"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
