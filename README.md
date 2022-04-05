@@ -11,6 +11,6 @@ Written in Kotlin implements the Jetpack libraries, Firebase services.
 * [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) - Build data objects that notify views when the underlying database changes.
 * [ViewModel ](https://developer.android.com/topic/libraries/architecture/viewmodel) 
 * [Firebase](https://firebase.google.com/docs) - Tools to develop high-quality apps
-* * afd;lj
-
+* *  [Authentication](https://firebase.google.com/docs) - Allows an app to securely save user data in the cloud.
+* *  [Cloud Firestore](https://firebase.google.com/docs/firestore) - Flexible, scalable NoSQL cloud database to store and sync data.
 
