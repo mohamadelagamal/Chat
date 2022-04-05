@@ -7,4 +7,10 @@ Written in Kotlin implements the Jetpack libraries, Firebase services.
 * [Kotlin](https://kotlinlang.org/) 
 * [MVVM](https://developer.android.com/jetpack/guide)
 * [Data Binding](https://developer.android.com/topic/libraries/data-binding/) -  Declaratively bind observable data to UI elements.
+* [Lifecycles](https://developer.android.com/topic/libraries/architecture/lifecycle)  - Create a UI that automatically responds to lifecycle events.
+* [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) - Build data objects that notify views when the underlying database changes.
+* [ViewModel ](https://developer.android.com/topic/libraries/architecture/viewmodel) 
+* [Firebase](https://firebase.google.com/docs) - Tools to develop high-quality apps
+* * afd;lj
+
 
