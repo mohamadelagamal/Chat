@@ -15,8 +15,8 @@ Written in Kotlin implements the Jetpack libraries, Firebase services.
 * *  [Cloud Firestore](https://firebase.google.com/docs/firestore) - Flexible, scalable NoSQL cloud database to store and sync data.
 # Features
 * Firebase
- "*" Authentication (Email)
-  "*" Cloud Firestore
+ ** Authentication (Email)**
+  ** Cloud Firestore **
 # Report issues
 Something not working quite as expected? Do you need a feature that has not been implemented yet? Check the issue tracker and add a new one if your problem is not already listed. Please try to provide a detailed description of your problem, including the steps to reproduce it.
 # How to run the project in development mode
