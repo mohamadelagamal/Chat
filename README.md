@@ -13,6 +13,8 @@ Written in Kotlin implements the Jetpack libraries, Firebase services.
 * [Firebase](https://firebase.google.com/docs) - Tools to develop high-quality apps
 * *  [Authentication](https://firebase.google.com/docs) - Allows an app to securely save user data in the cloud.
 * *  [Cloud Firestore](https://firebase.google.com/docs/firestore) - Flexible, scalable NoSQL cloud database to store and sync data.
+* [Room](https://developer.android.com/training/data-storage/room) - Access your app's SQLite database with in-app objects and compile-time checks.
+
 # Features
 * Firebase
  -** Authentication (Email)**
