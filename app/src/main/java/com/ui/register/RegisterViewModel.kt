@@ -2,6 +2,7 @@ package com.ui.register
 
 import android.util.Log
 import androidx.databinding.ObservableField
+import com.DataUtil
 import com.base.BaseViewModel
 import com.chat.database.addUserToFireStore
 import com.google.android.gms.tasks.OnFailureListener
@@ -57,7 +58,8 @@ class RegisterViewModel : BaseViewModel<Navigator>() {
         addUserToFireStore(appUser ,
             OnSuccessListener {
                 showLoading.value=false
-            navigator?.openHome()
+                DataUtil.user = appUser
+                navigator?.openHome()
         }, OnFailureListener {
             showLoading.value=false
             messageLiveData.value=it.localizedMessage
