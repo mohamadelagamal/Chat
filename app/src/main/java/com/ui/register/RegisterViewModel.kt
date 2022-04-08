@@ -3,12 +3,12 @@ package com.ui.register
 import android.util.Log
 import androidx.databinding.ObservableField
 import com.base.BaseViewModel
-import com.database.addUserToFireStore
+import com.chat.database.addUserToFireStore
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.model.AppUser
+import com.model.ApplicationUser
 
 class RegisterViewModel : BaseViewModel<Navigator>() {
     var name = ObservableField<String>()
@@ -49,14 +49,14 @@ class RegisterViewModel : BaseViewModel<Navigator>() {
 
     private fun createFireStoreUser(uid: String?) {
        showLoading.value=true
-        val appUser = AppUser(
+        val appUser = ApplicationUser(
             id = uid,
             userName = name.get(),
             email = email.get()
         )
         addUserToFireStore(appUser ,
             OnSuccessListener {
-            showLoading.value=false
+                showLoading.value=false
             navigator?.openHome()
         }, OnFailureListener {
             showLoading.value=false

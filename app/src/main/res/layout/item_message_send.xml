@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="vmSend"
+            type="com.model.Messages" />
 
     </data>
 
@@ -26,6 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end|bottom"
+                android:text="@{vmSend.formatDateTime()}"
                 android:layout_marginEnd="12dp"
                 android:textColor="@color/black"
                 tools:text="3:00pm" />
@@ -35,6 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
+                android:text="@={vmSend.content}"
                 android:background="@drawable/shap_send_message"
                 android:padding="12dp"
                 android:textColor="@color/white"

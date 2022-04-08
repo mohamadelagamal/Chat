@@ -19,7 +19,4 @@ data class Room(
     fun getCategoryImageID(): Int? {
         return Category.itemRoomShow(categoryId ?: Category.Sports).imageId
     }
-    fun getNameRoom():String{
-        return name.toString()
-    }
 }

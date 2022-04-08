@@ -4,13 +4,12 @@ import android.util.Log
 import androidx.databinding.ObservableField
 import com.DataUtil
 import com.base.BaseViewModel
-import com.database.SigIn
-import com.google.android.gms.common.util.DataUtils
+import com.chat.database.getUser
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.model.AppUser
+import com.model.ApplicationUser
 
 class LoginViewModel : BaseViewModel<Navigator>() {
      var email = ObservableField<String>()
@@ -45,10 +44,10 @@ class LoginViewModel : BaseViewModel<Navigator>() {
 
     private fun checkUserFormFireStore(uid: String?) {
     showLoading.value=true
-        SigIn(uid!!, OnSuccessListener {
+        getUser(uid!!, OnSuccessListener {
             showLoading.value=false
             // transfer data form AppUser to make compress in user variable
-            val user = it.toObject(AppUser::class.java)
+            val user = it.toObject(ApplicationUser::class.java)
                 if (user!=null){
                    DataUtil.user=user
                     navigator?.openHome()

@@ -8,12 +8,12 @@ import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.DataUtil
-import com.database.SigIn
+import com.chat.database.getUser
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.model.AppUser
+import com.model.ApplicationUser
 import com.ui.R
 import com.ui.home.HomeActivity
 import com.ui.login.LoginActivity
@@ -37,8 +37,8 @@ class SplashActivity : AppCompatActivity() {
                openLoginAccount()
            }
            else->{
-               SigIn(firebaseUser.uid, OnSuccessListener {
-                val user = it.toObject(AppUser::class.java)
+               getUser(firebaseUser.uid, OnSuccessListener {
+                val user = it.toObject(ApplicationUser::class.java)
                 DataUtil.user=user
                 openHome()
                }, OnFailureListener {

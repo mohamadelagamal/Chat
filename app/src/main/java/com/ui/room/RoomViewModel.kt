@@ -3,7 +3,7 @@ package com.ui.room
 import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
 import com.base.BaseViewModel
-import com.database.addRoom
+import com.chat.database.addRoom
 import com.model.Room
 import com.ui.room.spinner.Category
 

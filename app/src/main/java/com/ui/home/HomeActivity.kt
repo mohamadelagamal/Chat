@@ -4,14 +4,18 @@ import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.base.BaseActivity
-import com.database.getRoom
+import com.chat.database.getRooms
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.model.Room
 import com.ui.Constant
 import com.ui.R
@@ -27,20 +31,22 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>() , Naviga
 
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewDataBinding.vmHome=viewModel
         viewModel.navigator=this
         viewDataBinding.recyclerView.adapter=adapter
+
+
     }
+
     override fun getLayoutID(): Int {
         return R.layout.activity_home
     }
 
     override fun onStart() {
         super.onStart()
-        getRoom(
+        getRooms(
             onFailureListener = { Toast.makeText(this,"can't fetch rooms " , Toast.LENGTH_LONG).show()},
             onSuccessListener = {
                     qureySnapshot->
@@ -59,6 +65,28 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>() , Naviga
             override fun onItemClick(pos: Int, room: Room) {
                 // send data
                 startChatActiviy(room)
+            }
+        }
+        adapter.onItemLongClick = object : HomeAdapter.setOnLongClickListener{
+            override fun onItemClickLong(pos: Int, room: Room) {
+                val collection = Firebase.firestore.collection(Room.COLLECTION_NAME)
+                val id: String = collection.id
+                MaterialAlertDialogBuilder(this@HomeActivity).setCancelable(true)
+                    .setMessage("Do you want to Delete this Room ?").setPositiveButton("yes")
+                { dialog, which ->
+
+                   collection.document(id).delete().addOnCompleteListener { task ->
+                        when {
+                            task.isSuccessful -> {
+
+                            }
+                            else -> {
+                                Log.e("a;fsdljk", "a;sdfjkl;asdfj----------------------------")
+                            }
+                        }
+                        dialog.dismiss()
+                    }
+                }.show()
             }
         }
     }

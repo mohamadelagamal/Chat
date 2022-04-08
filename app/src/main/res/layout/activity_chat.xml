@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
-
+    <variable
+        name="vmRoomChat"
+        type="com.ui.chat.ChatViewModel" />
     </data>
 
 
@@ -36,6 +37,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
                         tools:text="AAA"
+                        android:text="@{vmRoomChat.room.name}"
                         android:textSize="25dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -45,8 +47,9 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="20dp"
-                        android:src="@drawable/ic_action_back"
+                        android:padding="10dp"
+                        android:onClick="@{()->vmRoomChat.backHome()}"
+                        android:src="@drawable/backeicon"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -68,6 +71,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/shap_button_send"
                 android:gravity="center_vertical"
+                android:onClick="@{()->vmRoomChat.sendMessage()}"
                 android:orientation="horizontal"
                 android:padding="12dp"
                 app:layout_constraintBottom_toBottomOf="@id/messageEdit"
@@ -96,7 +100,7 @@
                 android:background="@drawable/shap_message_strok"
                 android:hint="Your message"
                 android:padding="8dp"
-
+                android:text="@={vmRoomChat.contentMessage}"
                 android:layout_marginBottom="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/linearButton"
