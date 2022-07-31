@@ -21,11 +21,11 @@ Written in Kotlin implements the Jetpack libraries, Firebase services.
  * * Cloud Firestore
  # Software Design Patterns
 * The SOLID principles
- **SRP - Single Responsibility Principle
-**OCP - Open/Closed Principle
-**LSP - Liskov Substitution Principle
-**ISP - Interface Segregation Principle
-**DIP - Dependency Inversion Principle
+ * *SRP - Single Responsibility Principle
+* *OCP - Open/Closed Principle
+* *LSP - Liskov Substitution Principle
+* *ISP - Interface Segregation Principle
+* *DIP - Dependency Inversion Principle
 # Report issues
 Something not working quite as expected? Do you need a feature that has not been implemented yet? Check the issue tracker and add a new one if your problem is not already listed. Please try to provide a detailed description of your problem, including the steps to reproduce it.
 # How to run the project in development mode
