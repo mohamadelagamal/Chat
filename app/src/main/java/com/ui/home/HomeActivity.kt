@@ -59,8 +59,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>() , Naviga
         return R.layout.activity_home
     }
 
-    override fun onStart() {
-        super.onStart()
+    fun getData(){
         getRooms(
             onFailureListener = {
                 Toast.makeText(this,"can't fetch rooms " , Toast.LENGTH_LONG).show()},
@@ -71,6 +70,10 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>() , Naviga
             }
 
         )
+    }
+    override fun onStart() {
+        super.onStart()
+       getData()
         adapter.onItemClickListener = object : HomeAdapter.OnItemClickListener {
             override fun onItemClick(pos: Int, room: Room) {
                 // send data
@@ -89,7 +92,8 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>() , Naviga
                     db.collection(Room.COLLECTION_NAME).document(room.id.toString())
                         .delete().addOnSuccessListener { Log.d(ContentValues.TAG, "DocumentSnapshot successfully deleted!")
                             Toast.makeText(this@HomeActivity,"successfully deleted",Toast.LENGTH_LONG).show()
-                            returnActivity()
+
+                            getData()
                         }
                         .addOnFailureListener { e -> Log.w(ContentValues.TAG, "Error deleting document", e) }
 
