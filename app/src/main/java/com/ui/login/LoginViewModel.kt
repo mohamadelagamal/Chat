@@ -2,7 +2,7 @@ package com.ui.login
 
 import android.util.Log
 import androidx.databinding.ObservableField
-import com.DataUtil
+import com.model.DataUtil
 import com.base.BaseViewModel
 import com.chat.database.getUser
 import com.google.android.gms.tasks.OnFailureListener

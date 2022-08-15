@@ -23,7 +23,9 @@ class RoomViewModel: BaseViewModel<Navigator>() {
     fun createRoom(){
         when {
             VaildAtion() -> {
-                val room = Room(name=roomName.get(), description = roomDescription.get(), categoryId = selectedCategory.id)
+                val room =
+                    Room(name=roomName.get(), description = roomDescription.get(),
+                        categoryId = selectedCategory.id)
                 // send room to firebaseUtils
                 showLoading.value=true
                 addRoom(room, onSuccessListener = {

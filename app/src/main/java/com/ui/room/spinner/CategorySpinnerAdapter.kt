@@ -28,11 +28,13 @@ class CategorySpinnerAdapter(val items : List<Category>) : BaseAdapter(){
     }
 
     override fun getView(index: Int, view: View?, container: ViewGroup?): View {
+
         var myView = view
         var  viewHolder : ViewHolder
         when (myView){
             null->{
-                myView= LayoutInflater.from(container?.context).inflate(R.layout.item_spinner_category , container, false)
+                myView= LayoutInflater.from(container?.context)
+                    .inflate(R.layout.item_spinner_category , container, false)
          viewHolder = ViewHolder(myView)
                 myView.setTag(viewHolder)
             }
@@ -44,5 +46,6 @@ class CategorySpinnerAdapter(val items : List<Category>) : BaseAdapter(){
         viewHolder.title.setText(itemList.name)
         viewHolder.image.setImageResource(itemList.imageId!!)
         return myView!!
+
     }
 }

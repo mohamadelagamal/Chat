@@ -6,7 +6,6 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.lifecycle.ViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 abstract class BaseActivity <DB : ViewDataBinding, VM : BaseViewModel<*>> :AppCompatActivity()  {
@@ -37,7 +36,8 @@ abstract class BaseActivity <DB : ViewDataBinding, VM : BaseViewModel<*>> :AppCo
     }
 
     private fun showAlertDialog(message:String) {
-    MaterialAlertDialogBuilder(this).setMessage(message).setPositiveButton("yes"){dialog,which->
+    MaterialAlertDialogBuilder(this).setMessage(message).setPositiveButton("yes")
+    {dialog,which->
         dialog.dismiss()
     }.show()
     }

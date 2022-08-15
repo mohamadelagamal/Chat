@@ -10,7 +10,7 @@ import com.ui.R
 import com.ui.databinding.ItemHomeRecycleviewBinding
 
 
-class HomeAdapter(var items :List<Room>? ) : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
+class HomeAdapter( var items :List<Room>? ) : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
 
 
         var toast = MutableLiveData<String>()
@@ -27,8 +27,9 @@ class HomeAdapter(var items :List<Room>? ) : RecyclerView.Adapter<HomeAdapter.Vi
 
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-       val viewDataBinding:ItemHomeRecycleviewBinding= DataBindingUtil.inflate(LayoutInflater.from(parent.context),
-       R.layout.item_home_recycleview,parent,false)
+       val viewDataBinding:ItemHomeRecycleviewBinding=
+           DataBindingUtil.inflate(LayoutInflater.from(parent.context),
+            R.layout.item_home_recycleview,parent,false)
 
         return ViewHolder(viewDataBinding)
     }
@@ -41,8 +42,8 @@ class HomeAdapter(var items :List<Room>? ) : RecyclerView.Adapter<HomeAdapter.Vi
         fun removeStringItem(position: Int)
     }
 
-            override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
+   override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+       var newList = items?.get(position)
         holder.bind(items!![position])
         onItemClickListener?.let {
             holder.itemView.setOnClickListener {
@@ -50,10 +51,11 @@ class HomeAdapter(var items :List<Room>? ) : RecyclerView.Adapter<HomeAdapter.Vi
                 onItemClickListener?.onItemClick(position, items!![position])
             }
         }
-        onItemLongClick?.let {
+       onItemLongClick?.let {
             holder.itemView.setOnLongClickListener {
                 onItemLongClick?.onItemClickLong(position , items!![position] )
-                true
+                    true
+
             }
         }
 
@@ -84,5 +86,9 @@ class HomeAdapter(var items :List<Room>? ) : RecyclerView.Adapter<HomeAdapter.Vi
         notifyDataSetChanged()
     }
 
+    fun setFilteredList(filteredList: ArrayList<Room>){
+        this.items = filteredList
+        notifyDataSetChanged()
+    }
 
 }

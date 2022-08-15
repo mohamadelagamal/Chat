@@ -3,7 +3,7 @@ package com.ui.chat
 import android.util.Log
 import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
-import com.DataUtil
+import com.model.DataUtil
 import com.base.BaseViewModel
 import com.chat.database.addMessage
 import com.google.android.gms.tasks.OnFailureListener

@@ -2,7 +2,6 @@ package com.ui.register
 
 import android.util.Log
 import androidx.databinding.ObservableField
-import com.DataUtil
 import com.base.BaseViewModel
 import com.chat.database.addUserToFireStore
 import com.google.android.gms.tasks.OnFailureListener
@@ -10,6 +9,8 @@ import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.model.ApplicationUser
+import com.model.DataUtil
+import com.repos.FirebaseRepository
 
 class RegisterViewModel : BaseViewModel<Navigator>() {
     var name = ObservableField<String>()
@@ -18,6 +19,7 @@ class RegisterViewModel : BaseViewModel<Navigator>() {
     var nameError = ObservableField<String>()
     var passwordError = ObservableField<String>()
     var emailError = ObservableField<String>()
+    var  uid:String ?=null
     fun backLogin(){
         navigator?.backLogin()
     }
@@ -38,6 +40,7 @@ class RegisterViewModel : BaseViewModel<Navigator>() {
                    // navigator?.openHome()
                    // Log.e("firebase", "successful"+task.exception?.localizedMessage)
                     // give uid about authountcahtion
+                    uid = task.result.user?.uid
                     createFireStoreUser(task.result.user?.uid)
                 }
                 else->{
@@ -47,6 +50,8 @@ class RegisterViewModel : BaseViewModel<Navigator>() {
             }
         }
     }
+  // val result = sourcesRepository.getSources(category.id)
+  lateinit var firebaseResp:FirebaseRepository
 
     private fun createFireStoreUser(uid: String?) {
        showLoading.value=true
@@ -64,6 +69,10 @@ class RegisterViewModel : BaseViewModel<Navigator>() {
             showLoading.value=false
             messageLiveData.value=it.localizedMessage
         })
+//        FirebaseDataSourceImpl().addUser(appUser)
+//        showLoading.value=false
+//        navigator?.openHome()
+
     }
 
     fun validation():Boolean{

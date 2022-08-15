@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.DataUtil
+import com.model.DataUtil
 import com.model.Messages
 import com.ui.R
 import com.ui.databinding.ItemMessageRecievedBinding

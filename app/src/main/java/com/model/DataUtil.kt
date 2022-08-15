@@ -1,7 +1,6 @@
-package com
+package com.model
 
 import com.google.firebase.firestore.auth.User
-import com.model.ApplicationUser
 
 object DataUtil {
     var user :ApplicationUser?=null

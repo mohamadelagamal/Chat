@@ -10,13 +10,16 @@ import com.model.ApplicationUser
 import com.model.Messages
 import com.model.Room
 
-fun getCollection(collectionName:String):CollectionReference{
+fun getCollection(collectionName:String)
+:CollectionReference{
     val db = Firebase.firestore
     // val collectionRef = db.collection(ApplicationUser.COLLECTION_NAME)
     return db.collection(collectionName)
 }
-fun addUserToFireStore(user:ApplicationUser  , onSuccessListener: OnSuccessListener<Void>
-                       , onFailureListener: OnFailureListener){
+fun addUserToFireStore(
+     user:ApplicationUser
+    , onSuccessListener: OnSuccessListener<Void>
+    , onFailureListener: OnFailureListener){
 
     //val db = Firebase.firestore
     val userCollection = getCollection(ApplicationUser.COLLECTION_NAME)
