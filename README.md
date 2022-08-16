@@ -3,6 +3,8 @@ Chat is a free messaging app inspired by messaging social media apps.
 Written in Kotlin implements the Jetpack libraries, Firebase services.
 # Screenshots
 ![roomfinsh](https://user-images.githubusercontent.com/86564639/161870794-24a545f7-506a-48e2-bb91-684c817fa57b.png)
+# Video
+https://user-images.githubusercontent.com/86564639/184667207-3ba97be4-ec86-4bbe-b100-21547a54d3f1.mp4
 # Used Technology
 * [Kotlin](https://kotlinlang.org/) 
 * [MVVM](https://developer.android.com/jetpack/guide)
@@ -14,7 +16,6 @@ Written in Kotlin implements the Jetpack libraries, Firebase services.
 * *  [Authentication](https://firebase.google.com/docs) - Allows an app to securely save user data in the cloud.
 * *  [Cloud Firestore](https://firebase.google.com/docs/firestore) - Flexible, scalable NoSQL cloud database to store and sync data.
 * [Room](https://developer.android.com/training/data-storage/room) - Access your app's SQLite database with in-app objects and compile-time checks.
-
 # Features
 * Firebase
  * * Authentication (Email)
