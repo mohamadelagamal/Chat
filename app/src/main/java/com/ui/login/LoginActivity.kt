@@ -27,8 +27,11 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() , Nav
     }
 
     override fun openRegister() {
-        val intent = Intent(this,RegisterActivity::class.java)
-        startActivity(intent)
+//        val intent = Intent(this,RegisterActivity::class.java)
+//        startActivity(intent)
+        startActivity(Intent(this, RegisterActivity::class.java))
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+
     }
 
     override fun openHome() {

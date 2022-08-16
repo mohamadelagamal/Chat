@@ -7,20 +7,15 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.RecyclerView
 import com.base.BaseActivity
 import com.chat.database.getRooms
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.ValueEventListener
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.google.firebase.storage.FirebaseStorage
 import com.model.Room
 import com.ui.Constant
 import com.ui.R
@@ -28,23 +23,12 @@ import com.ui.chat.ChatActivity
 import com.ui.databinding.ActivityHomeBinding
 import com.ui.home.items.HomeAdapter
 import com.ui.home.search.SearchScreenActivity
-import com.ui.home.search.SearchScreenAdapter
 import com.ui.login.LoginActivity
 import com.ui.room.RoomActivity
 
 
 class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>() , Navigator{
     var adapter = HomeAdapter(null)
-    private var mStorage: FirebaseStorage? = null
-    private var mDatabaseRef: DatabaseReference? = null
-    private var mDBListener: ValueEventListener? = null
-    lateinit var mRecyclerView: RecyclerView
-    lateinit var myDataLoaderProgressBar : ProgressBar
-    private lateinit var listAdapterSearch: SearchScreenAdapter
-    lateinit var searchView: androidx.appcompat.widget.SearchView
-    lateinit var listAdapter:HomeAdapter
-    private lateinit var mTeachers:MutableList<Room>
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -118,18 +102,18 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>() , Naviga
 
     private fun startChatActiviy(room: Room) {
         val intent = Intent(this, ChatActivity::class.java)
-        // send data
+           // send data
         intent.putExtra(Constant.EXTRA_ROOM, room)
         startActivity(intent)
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
     }
-    private fun returnActivity() {
-        val intent = Intent(this, HomeActivity::class.java)
-        // send data
-        startActivity(intent)
-    }
+
     override fun createRoom() {
-        val intent = Intent(this,RoomActivity::class.java)
-        startActivity(intent)
+//        val intent = Intent(this,RoomActivity::class.java)
+//        startActivity(intent)
+        startActivity(Intent(this, RoomActivity::class.java))
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+        finish()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -148,13 +132,19 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>() , Naviga
         when (item.itemId) {
             R.id.logout -> {
             auth.signOut()
-                val intent = Intent(this,LoginActivity::class.java)
-                startActivity(intent)
+//                val intent = Intent(this,LoginActivity::class.java)
+//                startActivity(intent)
+//                finish()
+                startActivity(Intent(this, LoginActivity::class.java))
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
                 finish()
             }
             R.id.search->{
-                val intent = Intent(this@HomeActivity, SearchScreenActivity::class.java)
-                startActivity(intent)
+//                val intent = Intent(this@HomeActivity, SearchScreenActivity::class.java)
+//                startActivity(intent)
+                startActivity(Intent(this, SearchScreenActivity::class.java))
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+                finish()
             }
         }
         return super.onOptionsItemSelected(item)

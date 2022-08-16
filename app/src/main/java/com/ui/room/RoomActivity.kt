@@ -34,6 +34,9 @@ class RoomActivity: BaseActivity<ActivityRoomBinding, RoomViewModel>() , Navigat
                         if (it) {
                             MaterialAlertDialogBuilder(this@RoomActivity).setCancelable(false).setMessage("Room Added Successfuly").setPositiveButton("yes")
                             { dialog, which->
+                                val intent = Intent(this@RoomActivity, HomeActivity::class.java)
+                                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+                                startActivity(intent)
                                 dialog.dismiss()
                             }.show()
                         }
@@ -57,8 +60,11 @@ class RoomActivity: BaseActivity<ActivityRoomBinding, RoomViewModel>() , Navigat
     }
 
     override fun backHome() {
-        val intent = Intent(this,HomeActivity::class.java)
-        startActivity(intent)
+//        val intent = Intent(this,HomeActivity::class.java)
+//        startActivity(intent)
+        startActivity(Intent(this, HomeActivity::class.java))
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+
     }
 
 

@@ -31,7 +31,7 @@ class RoomViewModel: BaseViewModel<Navigator>() {
                 addRoom(room, onSuccessListener = {
                     showLoading.value=false
                     roomAdded.value=true
-                    navigator?.backHome()
+                   // navigator?.backHome()
                 }, onFailureListener = {
                     showLoading.value=false
                     messageLiveData.value=it.localizedMessage

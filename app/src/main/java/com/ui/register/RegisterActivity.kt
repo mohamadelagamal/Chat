@@ -29,13 +29,19 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding,RegisterViewModel>
     }
 
     override fun backLogin() {
-        val intent = Intent(this,LoginActivity::class.java)
-        startActivity(intent)
+//        val intent = Intent(this,LoginActivity::class.java)
+//        startActivity(intent)
+        startActivity(Intent(this, LoginActivity::class.java))
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+
     }
 
     override fun openHome() {
-        val intent = Intent(this, HomeActivity::class.java)
-        startActivity(intent)
+//        val intent = Intent(this, HomeActivity::class.java)
+//        startActivity(intent)
+//        finish()
+        startActivity(Intent(this, HomeActivity::class.java))
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         finish()
     }
 
