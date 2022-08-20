@@ -20,7 +20,6 @@ fun addUserToFireStore(
      user:ApplicationUser
     , onSuccessListener: OnSuccessListener<Void>
     , onFailureListener: OnFailureListener){
-
     //val db = Firebase.firestore
     val userCollection = getCollection(ApplicationUser.COLLECTION_NAME)
     val userDoc =  userCollection.document(user.id!!)

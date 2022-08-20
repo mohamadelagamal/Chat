@@ -18,7 +18,6 @@ data class Messages(
         val simpleDateFormat = SimpleDateFormat("hh:mm a", Locale.getDefault())
         return simpleDateFormat.format(date)
     }
-
     companion object {
         val COLLECTION_NAME = "messages"
     }

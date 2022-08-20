@@ -17,7 +17,7 @@ import com.ui.databinding.ActivityChatBinding
 import com.ui.home.HomeActivity
 
 class ChatActivity : BaseActivity<ActivityChatBinding,ChatViewModel>(),Navigator {
-    lateinit var room:Room
+      lateinit var room:Room
     // to sorted messages
     lateinit var layoutManager: LinearLayoutManager
     val adapter = MessagesAdapter()
@@ -63,8 +63,10 @@ class ChatActivity : BaseActivity<ActivityChatBinding,ChatViewModel>(),Navigator
     }
 
     override fun backHome() {
-        val intent = Intent(this,HomeActivity::class.java)
-        startActivity(intent)
+//        val intent = Intent(this,HomeActivity::class.java)
+//        startActivity(intent)
+        startActivity(Intent(this, HomeActivity::class.java))
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
 
     }
 }

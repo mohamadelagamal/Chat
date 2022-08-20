@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.base.BaseActivity
 import com.ui.R
 import com.ui.databinding.ActivityLoginBinding
+import com.ui.home.HomeActivity
 import com.ui.register.RegisterActivity
 
 class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() , Navigator{
@@ -35,8 +36,8 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() , Nav
     }
 
     override fun openHome() {
-//        val intent = Intent(this,HomeActivity::class.java)
-//        startActivity(intent)
-//        finish()
+        val intent = Intent(this, HomeActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }

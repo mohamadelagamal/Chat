@@ -10,7 +10,6 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.model.ApplicationUser
 import com.model.DataUtil
-import com.repos.FirebaseRepository
 
 class RegisterViewModel : BaseViewModel<Navigator>() {
     var name = ObservableField<String>()
@@ -51,7 +50,6 @@ class RegisterViewModel : BaseViewModel<Navigator>() {
         }
     }
   // val result = sourcesRepository.getSources(category.id)
-  lateinit var firebaseResp:FirebaseRepository
 
     private fun createFireStoreUser(uid: String?) {
        showLoading.value=true

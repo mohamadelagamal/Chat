@@ -2,7 +2,6 @@ package com.ui.login
 
 import android.util.Log
 import androidx.databinding.ObservableField
-import com.model.DataUtil
 import com.base.BaseViewModel
 import com.chat.database.getUser
 import com.google.android.gms.tasks.OnFailureListener
@@ -10,6 +9,7 @@ import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.model.ApplicationUser
+import com.model.DataUtil
 
 class LoginViewModel : BaseViewModel<Navigator>() {
      var email = ObservableField<String>()
@@ -24,6 +24,7 @@ class LoginViewModel : BaseViewModel<Navigator>() {
         if (validation()){
             loginAccountFormFirebase()
         }
+
     }
 
     private fun loginAccountFormFirebase() {
@@ -32,7 +33,7 @@ class LoginViewModel : BaseViewModel<Navigator>() {
             showLoading.value=false
             when{
                 task.isSuccessful->{
-                  //  navigator?.openHome()
+                    navigator?.openHome()
                     checkUserFormFireStore(task.result.user?.uid)
                     Log.e("firebase","Success Login"+task.exception?.localizedMessage)
                 }else->{
